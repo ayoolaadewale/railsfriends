@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   #root 'home#index'
   root 'friends#index'
   get 'home/about'
+  get '/search', to: "friends#search"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

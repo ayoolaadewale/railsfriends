@@ -17,6 +17,16 @@ class FriendsController < ApplicationController
     @friend = current_user.friends.build
   end
 
+  def search
+    if params[:search].blank?
+      redirect_to friends_path and return
+    else
+      @parameter = params[:search].downcase
+      @results = Friend.all.where("lower(first_name) LIKE ?", "%#{@parameter}%")
+    end
+
+  end
+
   # GET /friends/1/edit
   def edit
   end
